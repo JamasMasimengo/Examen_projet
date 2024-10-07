@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application de Chat</title>
+    <!-- Lien vers le fichier CSS de Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .alert-dismissible .btn-close {
+            margin-top: -0.75rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Barre de navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <a class="navbar-brand" href="#">ChatApp</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <!-- <li class="nav-item">
+                        <a class="nav-link active" href="#">Accueil</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Messages</a>
+                    </li>
+                    <!--  -->
+                </ul>
+                <div class="d-flex align-items-center">
+                    <img src="https://via.placeholder.com/40" alt="Profil" class="rounded-circle me-2">
+                    <button class="btn btn-outline-danger" type="button">Déconnexion</button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="row vh-100">
+            <!-- Liste des contacts -->
+            <div class="col-md-3 col-lg-2 bg-light border-end p-3">
+                <h5 class="mb-3">{{firstname}} {{lastname}} </h5>
+                <ul class="list-group">
+                    {%for i in user %}
+                    <li class="list-group-item">
+                        <form action="/conversation" method="post">
+                            <input type="text" id="sender" name="sender" value="{{username}}" hidden>
+                            <input type="text" id="idsender" name="idsender" value="{{idsender}}" hidden>
+                            <input type="text" id="idreceiver" name="idreceiver" value="{{i[0]}}" hidden>
+                            <input type="text" id="sender" name="firstname" value="{{firstname}}" hidden>
+                            <input type="text" id="sender" name="lastname" value="{{lastname}}" hidden>
+                            <input type="text" id="receiver" name="receiver" value="{{i[1]}}" hidden>
+                            <input type="submit" class="text-decoration-none" value="{{i[3]}} {{i[4]}}">
+                        </form>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- Zone de chat -->
+            <div class="col-md-9 col-lg-10 d-flex flex-column">
+                <!-- Header de la discussion -->
+                <div class="py-2 px-3 border-bottom">
+                    <h5 class="mb-0">Discussion avec Contact 2</h5>
+                </div>
+                <!-- Messages de chat -->
+                <div class="flex-grow-1 p-3" style="overflow-y: auto;">
+                    <div class="d-flex mb-3">
+                        <div class="me-2">
+                            <span class="badge bg-primary">Vous</span>
+                        </div>
+                        <div class="bg-light p-2 rounded">Salut, comment ça va ?</div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <div class="ms-auto me-2 bg-primary text-white p-2 rounded">
+                            Je vais bien, merci ! Et toi ?
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <div class="me-2">
+                            <span class="badge bg-primary">Vous</span>
+                        </div>
+                        <div class="bg-light p-2 rounded">Je voulais juste te dire que je serai en retard cet après-midi.</div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <div class="ms-auto me-2 bg-primary text-white p-2 rounded">
+                            Pas de souci, merci de m'avoir prévenu !
+                        </div>
+                    </div>
+                    <!-- Plus de messages ici -->
+                </div>
+                <!-- Champ de saisie -->
+                <div class="p-3 border-top">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Écrivez un message...">
+                        <button class="btn btn-primary" type="button">Envoyer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lien vers le fichier JS de Bootstrap 5.3 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
