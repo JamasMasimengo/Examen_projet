@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agence de Voyage</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+        <a  class="navbar-brand text-primary" href="/register">Créer un compte</a>
+        <div class="container">
+            <a href="/login" class="btn btn-primary">Login</a>
+            <a href="/dashboard" class="btn btn-primary">admin</a>
+        </div>
+        <div class="container">
+            <a href="/logout" class="btn btn-danger">Deconnexion</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ml-3"><a href="/">Accueil</a></li>
+                <li class="nav-item ml-3"><a href="/contact"></a></li>
+                 <li class="nav-item ml-3"><a href="/book">Réserver</a></li>
+                </li>
+            </ul>
+        </div>
+    </nav>
+   
+
+    <header class="jumbotron jumbotron-fluid text-center">
+        <div class="container">
+            <h1 class="display-4">Bienvenue à notre Agence de Voyage</h1>
+            
+            <p class="lead">Explorez le monde avec nous</p>
+            <img src="static/av1.jpg" class="img-fluid" alt="Image de voyage">
+        </div>
+  
+
+
+
+        <div class="container">
+
+            <h1 >Reserver des billets</h1>
+            <a href="/book" class="btn btn-primary">Réserver un billet</a>
+        </div>
+    </header>
+
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Destinations Populaires</h2>
+                <p>Découvrez nos destinations les plus populaires et commencez votre aventure dès aujourd'hui.</p>
+            </div>
+            <div class="col-md-4">
+                <h2>Offres Spéciales</h2>
+                <p>Profitez de nos offres spéciales et économisez sur votre prochain voyage.</p>
+            </div>
+            <div class="col-md-4">
+                <h2>Contactez-nous</h2>
+                <a href="/contact"></a>
+                
+                <p>Besoin d'aide ? Contactez notre équipe pour plus d'informations.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-light text-center py-4">
+        <p>© 2024 Agence de Voyage.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
