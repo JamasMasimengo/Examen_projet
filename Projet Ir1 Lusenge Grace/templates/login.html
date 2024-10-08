@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <!-- Lien Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    
+</head>
+<body>
+    
+    <div class="container mt-5">
+        <h1 class="text-center">Bienvenue, veuillez vous connecter</h1>
+        <div class="text-center mt-6">
+            <img src="static/images/dola.jpg" alt="dola" class="img-fluid" style="max-width: 20%;">
+        </div>
+        <form action="/login" method="POST" class="mx-auto w-50">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
+                <label for="nom"><i class="bi bi-person"></i> Nom</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom" required>
+                <label for="prenom"><i class="bi bi-person"></i> Prénom</label>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Se connecter</button>
+            <div class="text-center mt-3">
+                <a href="/ajoutClient">Pas de compte ? Inscrivez-vous</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Lien Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Lien Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+</body>
+</html>
