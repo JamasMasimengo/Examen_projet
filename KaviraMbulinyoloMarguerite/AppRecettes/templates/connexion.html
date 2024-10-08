@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - MagyApp</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e9f7ef;
+        }
+        .header {
+            background-color: #28a745;
+            color: white;
+            padding: 20px 0;
+        }
+        .container {
+            max-width: 400px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- En-tête -->
+    <header class="header text-center">
+        <h1>Connexion à MagyApp</h1>
+        <p>Veuillez entrer vos identifiants</p>
+    </header>
+
+    <div class="container">
+        <form action= "/connexion" method="POST">
+            <div class="form-group">
+                <label for="username">Nom de l'utilisateur:</label>
+                <input type="text" class="form-control" id="username" placeholder="Entrez votre nom" name="username" required >
+            </div>
+            <!--<div class="form-group">
+                <label for="email ">Email</label>
+                <input type="text" class="form-control" id="email" placeholder="Entrez votre email" name="email" required>
+            </div>-->
+            <div class="form-group">
+                <label for="motDePasse">Mot de passe:</label>
+                <input type="password" class="form-control" id="password" placeholder="Entrez votre mot de passe" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Se connecter</button>
+            <p class="mt-3">Pas encore de compte ? <a href="/inscription">Inscrivez-vous ici</a></p>
+        </form>
+    </div>
+
+    <!-- Scripts Bootstrap -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter Dépense - MaggyApp</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e9f7ef;
+        }
+        .header {
+            background-color: #28a745;
+            color: white;
+            padding: 20px 0;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .btn-primary {
+            background-color: #007bff; /* Couleur bleue */
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; /* Couleur bleue foncée */
+            border-color: #004085;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">MaggyApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ajouter">Ajouter Dépense</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/rapport">Rapports</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/parametres">Paramètres</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Déconnexion</a>
+                </li>
+            </ul>
+            <span class="navbar-text ml-auto">
+                Bonjour, {{ utilisateur }}
+            </span>
+        </div>
+    </nav>
+
+    <!-- En-tête -->
+    <header class="header text-center">
+        <h1>Bienvenue dans MaggyApp</h1>
+        <h3>Bonjour, {{ utilisateur}}</h3>
+        <!--<p>Bonjour, {{ utilisateur }}</p>-->
+        <p>Gérez vos dépenses et revenus facilement.</p>
+    </header>
+
+    <!-- Formulaire d'ajout de dépense -->
+    <div class="container">
+        <h2 class="text-center">Ajouter une Transaction</h2>
+        <form method="POST" action="/ajouter">
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" id="description" placeholder="Catégorie de la dépense" name="description" required>
+            </div>
+            <div class="form-group">
+                <label for="montant">Montant</label>
+                <input type="number" class="form-control" id="montant" placeholder="Montant" name="montant" required>
+            </div>
+            <div class="form-group">
+                <label for="type">Type</label>
+                <select class="form-control" id="type" name="type" required>
+                    <option value="revenu">Revenu</option>
+                    <option value="dépense">Dépense</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+        </form>
+    </div>
+
+    <!-- Scripts Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
