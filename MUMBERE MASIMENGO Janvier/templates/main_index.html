@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vente de Voitures</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Barre de Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Vente des véhicules</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Accueil</a>
+                </li>
+                
+                <!-- Formulaire de Connexion -->
+                <li class="nav-item">
+                    <form class="form-inline my-2 my-lg-0">
+                        <a class="btn btn-outline-success my-2 my-sm-0" href="{{url_for('login')}}">Connexion</a>
+                        
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Section Héroïque -->
+    <div class="jumbotron text-center text-warning fs-2 fw-bolder bg-image" style="background-image: url('/static/images/home-img.jpg');background-size: cover; background-position: center; height: 60vh;">
+        <h1 class="display-4 text-shadow" style="text-transform: uppercase;">Trouvez la Voiture de Vos Rêves</h1>
+        <p class="lead fs-1 text-primary shadow">Parcourez notre vaste collection de véhicules et trouvez celui qui vous convient parfaitement.</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Achetez Maintenant</a>
+    </div>
+
+    <!-- Section Véhicules en Vedette -->
+    <div class="container" id="vehicules">
+        <h2 class="text-center my-5">Véhicules en Vedette</h2>
+        <div class="row">
+            {% for vehicule in vehicules %}
+            <div class="col-md-4">
+                
+                <div class="card mb-4">
+                    <img src="/static/images/{{ vehicule.photo }}" class="card-img-top" alt="Voiture 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Modèle: {{ vehicule.modele }}</h5>
+                        <p class="card-text">Marque: {{ vehicule.marque }}</p>
+                        <p class="card-text">Prix: {{ vehicule.prix }} USD</p>
+                        <p class="card-text">Description: {{ vehicule.description }}</p>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+    <!-- section vehicules electriques-->
+    <div class="container">
+        <h2 class="text-center my-5">Véhicules électriques</h2>
+        <div class="row">
+            {% for electrique in electriques %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="/static/images/{{ electrique.photo }}" class="card-img-top" alt="Voiture 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Modèle: {{ electrique.modele }}</h5>
+                        <p class="card-text">Marque: {{ electrique.marque }}</p>
+                        <p class="card-text">Prix: {{ electrique.prix }}</p>
+                        <p class="card-text">Description: {{ electrique.description }}</p>
+                        <a href="#" class="btn btn-primary">Voir Détails</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+    <!--Section vehicule de sport-->
+    <div class="container">
+        <h2 class="text-center my-5">Véhicules de sport</h2>
+        <div class="row">
+            {% for sport in sports %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="/static/images/{{ sport.photo }}" class="card-img-top" alt="Voiture 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Modèle: {{ sport.modele }}</h5>
+                        <p class="card-text">Marque: {{ sport.marque }}</p>
+                        <p class="card-text">Prix: {{ sport.prix }}</p>
+                        <p class="card-text">Description: {{ sport.description }}</p>
+                        <a href="#" class="btn btn-primary">Voir Détails</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+    <!-- Pied de Page -->
+    
+    <footer class="bg-dark text-white pt-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <h5>À propos de nous</h5>
+              <p>Nous sommes un concessionnaire automobile de premier plan avec une large gamme de véhicules pour répondre à tous les besoins et budgets. Notre mission est de fournir le meilleur service client et les véhicules de la plus haute qualité à nos clients.</p>
+            </div>
+            <div class="col-md-4">
+              <h5>Liens utiles</h5>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Accueil</a></li>
+                <li><a href="#" class="text-white">Services</a></li>
+                <li><a href="#" class="text-white">Contact</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h5>Contactez-nous</h5>
+              <ul class="list-unstyled">
+                <li><i class="fas fa-map-marker-alt"></i> Katwa, Butembo, Nord-Kivu, DR Congo</li>
+                <li><i class="fas fa-phone"></i> +243 975 174 733</li>
+                <li><i class="fas fa-envelope"></i> masimengojamas@gmail.com </li>
+              </ul>
+            </div>
+          </div>
+          <div class="text-center py-3">
+            © 2024 Jamas Masimengo. Tous droits réservés.
+          </div>
+        </div>
+      </footer>
+      
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

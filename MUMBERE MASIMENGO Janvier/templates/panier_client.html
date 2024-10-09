@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Vente des véhicules</a><br>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{url_for('user_index')}}">Accueil</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="btn btn-outline-danger my-2 my-sm-0" href=" {{url_for('logout')}} ">Déconnexion</a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 class="mt-5 text-center">Liste des vehicules se trouvant dans mon panier</h1>
+        <a href="{{ url_for('liste_vehicule_client') }}" class="btn btn-primary mb-3">Retour à la Liste des Véhicules</a>
+        <div class="row">
+            {% for vehicule in vehicules %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="/static/images/{{ vehicule.photo }}" class="card-img-top" alt="{{ vehicule.modele }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ vehicule.marque }} {{ vehicule.modele }}</h5>
+                        <p class="card-text">Prix: {{ vehicule.prix }} USD</p>
+                        <p class="card-text">Couleur: {{ vehicule.couleur }}</p>
+                        <p class="card-text">Kilométrage: {{ vehicule.kilometrage }} km</p>
+                        <p hidden class="card-text">User id: {{vehicule.id_user }}</p>
+                        <p hidden class="card-text">vehicule id: {{vehicule.id_vehicule }}</p>
+                        <p hidden class="card-text">User: {{vehicule.name }}</p>
+                        <a href="{{ url_for('acheter', id=vehicule.id) }}" class="btn btn-primary">Achetez maintenant</a>
+                        <form action="{{ url_for('supprimer_panier', id=vehicule.id) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">Supprimer du panier</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

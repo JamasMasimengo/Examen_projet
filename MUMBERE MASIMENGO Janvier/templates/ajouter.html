@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Véhicule</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{{ url_for('index') }}">Vente des véhicules</a><br>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('index') }}">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('liste_vehicule')}}">Liste des Véhicules</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-danger my-2 my-sm-0" href=" {{url_for('logout')}} ">Déconnexion</a>
+                </li>             
+                                
+            </ul>
+        </div>
+    </nav>
+
+    
+
+    <div class="container col-5">
+        <h1 class="mt-5 ">Ajouter un Véhicule</h1>
+        <form method="POST" enctype="multipart/form-data">
+            
+            <div class="form-group">
+                <label for="modele">Modèle</label>
+                <select class="form-control" id="modele" name="modele" required>
+                    <option value="Fiat-500">Fiat-500</option>
+                    <option value="Peugeot-208">Peugeot-208</option>
+                    <option value="Volkswagen Golf">Volkswagen Golf</option>
+                    <option value="Toyota RAV4">Toyota RAV4</option>
+                    <option value="Porshe">Porshe</option>
+                </select>
+                
+            </div>
+            <div class="form-group">
+                <label for="marque">Marque</label>
+                <select class="form-control" id="marque" name="marque" required>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Ford">Ford</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Mercedes-Benw">Mercedes-Benw</option>
+                    <option value="Honda">Honda</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="categorie">Catégorie</label>
+                <select class="form-control" id="categorie" name="categorie" required>
+                    <option value="Mini-citadines">Mini-citadines</option>
+                    <option value="Petites Voiture">Petites Voiture</option>
+                    <option value="Voitures compactes">Voitures compactes</option>
+                    <option value="SUV">SUV</option>
+                    <option value="Voitures de sport">Voitures de sport</option>
+                    <option value="Voiture electrique">Voiture electrique</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="couleur">Couleur</label>
+                <input type="text" class="form-control" id="couleur" name="couleur" required>
+            </div>
+            <div class="form-group">
+                <label for="prix">Prix en dollars</label>
+                <input type="number" class="form-control" id="prix" name="prix" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Âge du Véhicule</label>
+                <input type="number" class="form-control" id="age" name="age" required>
+            </div>
+            <div class="form-group">
+                <label for="categorie">Description</label>
+                <input type="text" class="form-control" id="description" name="description" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="kilometrage">Kilométrage</label>
+                <input type="number" class="form-control" id="kilometrage" name="kilometrage" required>
+            </div>
+            <div class="form-group">
+                <label for="photo">Photo (URL)</label>
+                <input type="file" class="form-control" id="photo" name="photo" required>
+            </div>
+            <button type="submit" class="btn btn-primary mb-4">Ajouter</button>
+        </form>
+    </div>
+</body>
+</html>

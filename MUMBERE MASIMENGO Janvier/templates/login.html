@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .login-form {
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            margin: auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .login-form h2 {
+            margin-bottom: 20px;
+        }
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #007bff;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Vente des véhicules</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Accueil</a>
+                </li>
+                
+                <!-- Formulaire de Connexion -->
+                <li class="nav-item">
+                    <form class="form-inline my-2 my-lg-0">
+                        <a class="btn btn-outline-success my-2 my-sm-0" href="{{url_for('login')}}">Connexion</a>
+                        
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="body">
+        <div class="login-form">
+            <h2 class="text-center">Login</h2>
+            <form action=" {{url_for('login')}} " method="POST">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Nom utilisateur :</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter le nom utilisateur">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Mot de passe :</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Entrer le mot de passe">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+                <label for="">Vous n'avez de compte? <a href=" {{url_for('ajouter_client')}} ">Creer un compte</a></label>
+                <a href=""></a>
+            </form>
+        </div>
+    </div>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

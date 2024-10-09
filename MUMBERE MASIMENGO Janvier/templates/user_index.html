@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vente de Véhicules</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Vente des véhicules</a><br>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('user_index') }}">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('liste_vehicule_client') }}">Liste Véhicules</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Liste de mes achats</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('panier_client') }}">Mon Panier</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="btn btn-outline-danger my-2 my-sm-0" href="{{url_for('logout')}}">Déconnexion</a>
+                </li> 
+                
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron text-center text-warning fs-2 fw-bolder bg-image" style="background-image: url('/static/home-img.jpg');background-size: cover; background-position: center; height: 60vh;">
+        
+        <h1 class="display-4">Trouvez la Voiture de Vos Rêves</h1>
+        <p class="lead">Parcourez notre vaste collection de véhicules et trouvez celui qui vous convient parfaitement.</p>
+        <a class="btn btn-primary btn-lg" href=" {{ url_for('panier_client')}} " role="button">Achetez Maintenant</a>
+    </div>
+    <div class="container">
+        
+        
+        <!-- <a href="{{ url_for('ajouter') }}" class="btn btn-primary mb-3">Ajouter un Véhicule</a> -->
+        <h1 class="mt-5">Véhicules en Vente</h1>
+        <div class="row">
+            {% for vehicule in vehicules %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="/static/images/{{vehicule.photo}}" class="card-img-top" alt="{{ vehicule.modele }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ vehicule.marque }} {{ vehicule.modele }}</h5>
+                        <p class="card-text">Prix: {{ vehicule.prix }} USD</p>
+                        <p class="card-text">Couleur: {{ vehicule.couleur }}</p>
+                        <p class="card-text">Kilométrage: {{ vehicule.kilometrage }} km</p>
+                        
+                        <form action="{{ url_for('ajouter_au_panier', id=vehicule.id) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-success mt-2">Ajouter au Panier</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <h1 class="mt-5">Véhicules electriques</h1>
+        <div class="row">
+            {% for electrique in electriques %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="/static/images/{{electrique.photo}}" class="card-img-top" alt="{{ electrique.modele }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ electrique.marque }} {{ electrique.modele }}</h5>
+                        <p class="card-text">Prix: {{ electrique.prix }} USD</p>
+                        <p class="card-text">Couleur: {{ electrique.couleur }}</p>
+                        <p class="card-text">Kilométrage: {{ electrique.kilometrage }} km</p>
+                        
+                        
+                        <form action="{{ url_for('ajouter_au_panier', id=electrique.id) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-success mt-2">Ajouter au Panier</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <h1>Vehicules de sport</h1>
+        <div class="row">
+            {% for sport in sports %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="/static/images/{{ sport.photo }}" class="card-img-top" alt="{{ sport.modele }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ sport.marque }} {{ sport.modele }}</h5>
+                        <p class="card-text">Prix: {{ sport.prix }} USD</p>
+                        <p class="card-text">Couleur: {{ sport.couleur }}</p>
+                        <p class="card-text">Kilométrage: {{ sport.kilometrage }} km</p>
+                        
+                        <form action="{{ url_for('ajouter_au_panier', id=sport.id) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-success mt-2">Ajouter au Panier</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
